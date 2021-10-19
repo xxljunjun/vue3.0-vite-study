@@ -1,15 +1,26 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <div>{{ searchText }}</div>
+  <HelloWorld v-model="searchText" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      searchText: "Hello Vue 3.0 + Vite",
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+};
 </script>
+<style lang="css">
+.home {
+  color: red;
+}
+</style>
