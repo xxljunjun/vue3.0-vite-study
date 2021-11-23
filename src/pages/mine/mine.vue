@@ -1,22 +1,19 @@
 <template>
-<div>
-    <router-view></router-view>
-  <tabBar/>
-</div>
-
+    <div>
+      111111111
+    </div>
 </template>
 
-<script>
-import tabBar from './components/tabBar.vue'
+<script lang='ts'>
 export default {
-  name: "App",
+  name: "mine",
   data() {
     return {
       
     };
   },
   components: {
-   tabBar
+    
   },
 };
 </script>
