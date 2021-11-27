@@ -1,26 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <div>{{ searchText }}</div>
-  <HelloWorld v-model="searchText" />
+  <router-view></router-view>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
+  setup() {
+    return {};
+  },
   data() {
-    return {
-      searchText: "Hello Vue 3.0 + Vite",
-    };
+    return {};
   },
-  components: {
-    HelloWorld,
-  },
+  mounted() {},
+  components: {},
 };
 </script>
-<style lang="css">
-.home {
-  color: red;
-}
-</style>
