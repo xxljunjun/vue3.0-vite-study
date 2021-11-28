@@ -7,6 +7,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "element-plus": "^1.2.0-beta.4",
     "vue": "^3.2.23",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.0-0"
@@ -15,6 +16,15 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.4",
-    "vite": "^1.0.0-rc.13"
+    "babel-plugin-component": "^1.1.1",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.4",
+    "scss": "^0.2.4",
+    "scss-loader": "^0.0.1",
+    "style-loader": "^3.3.1",
+    "style-resources-loader": "^1.4.1",
+    "vite": "^1.0.0-rc.13",
+    "vue-cli-plugin-element-plus": "~0.0.13",
+    "vue-cli-plugin-style-resources-loader": "~0.1.5"
   }
 }

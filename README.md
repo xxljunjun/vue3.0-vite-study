@@ -35,3 +35,24 @@ vue add store
 ```
 yarn add vue-router@next
 ```
+### 五、scss和less的安装
+```js
+// # Sass
+npm install -D sass-loader sass
+
+// # Less
+npm install -D less-loader less
+
+// # Stylus
+npm install -D stylus-loader stylus
+
+// vue add style-resources-loader
+```
+### 六、安装elementUI
+```js
+vue add element-plus
+//踩坑！！！文件最外面的文件名不能是中文
+//根据elementUI3.0进行配置
+```
+
+
