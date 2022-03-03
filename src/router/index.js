@@ -15,6 +15,11 @@ const routes = [
         path: "/proxy",
         name: "proxy",
         component: () => import("../pages/proxy/index.vue")
+    },
+    {
+        path: "/computed",
+        name: "proxy",
+        component: () => import("../pages/computed/index.vue")
     }
 ]
 

@@ -83,5 +83,58 @@ const 代理对象 = reactive(源对象)
 
 ### vue3.0响应式原理
 ```
+Proxy
+
+```
+
+### reactive和ref的区别
++ 从定义数据的角度对比
+```
+ref用来定义基本数据类型
+reactive用来定义对象或数组类型的数据
+（ref也可以用来定义对象或数组类型数据，它内部会自动通过reactive转成代理对象）
+```
++ 从原理的角度
+```
+ref通过object.defineProperty()的get和set实现响应式(数据劫持)
+reactive通过使用Proxy来实现响应式（数据劫持），并通过Reflect操作源对象内部的数据
+```
++ 从使用角度
+```
+ref定义的数据：在js操作数据时需要.value;模板中不需要.value
+reactive定义的数据：都不需要.value
+```
+
+### vue2.0的$attrs和$slots的作用
+```
+$attrs是prosps的兜底
+$slots是用于接收父组件的插槽
+```
+
+### setup
+```js
+// setup执行的时机在beforeCreacte之前执行一次，this是undefinded
+// setup的参数：
+    emits:["自定义事件"]
+    setup(prosps,context){
+
+    }
+    context里面有attrs、slots、emit
+```
+
+### vue3的计算属性
+```js
+import {computed} from "vue"
+let allName = computed(()=>{
+    return 111
+})
+let allName = computed({
+    set(){
+
+    },
+    get(val){
+        
+    }
+})
 ```
 
