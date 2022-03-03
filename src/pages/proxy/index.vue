@@ -1,16 +1,12 @@
 <template>
-  <h1>一个人的信息</h1>
-   <h1>姓名：{{person.name}}</h1>
-    <h1>年龄：{{person.age}}</h1>
-    <h1>工作种类：{{person.obj.type}}</h1>
-    <h1>工作薪水：{{person.obj.salary}}</h1>
-   <button @click="change">修改人员信息</button>
+  <h1>proxy</h1>
+
 </template>
 
 <script>
 import {h,ref,reactive} from 'vue'
 export default {
-  name: "mine",
+  name: "proxy",
   setup(){
     //数据
     let person = reactive({
