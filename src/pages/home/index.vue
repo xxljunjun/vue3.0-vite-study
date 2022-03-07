@@ -1,44 +1,50 @@
 <template>
   <div class="home">
-    <img src="../../assets/logo.png" />
-    <el-button type="primary">el-button</el-button>
-    <el-button type="success" round>Success</el-button>
-    <div>{{ mine }}</div>
-    <div>{{ obj.name }}</div>
-    <div>{{ store.state.nums }}</div>
+     <button @click="toPage(item.id)" v-for="item in obj" :key="item.id">{{item.txt}}</button>
   </div>
 </template>
 
 <script lang='ts'>
-import { defineComponent, ref, reactive } from "vue";
-import { useStore } from "vuex"; //页面上引入vuex
-import { ElButton } from "element-plus";
-export default defineComponent({
+import {reactive } from "vue";
+import {useRouter} from 'vue-router';
+export default {
   name: "home",
-  components: { ElButton },
   setup() {
-    //获取store实例
-    let store = useStore();
-    //获取vuex state中的number
-    console.log(store.state); //输出1
-    //ref--用来标记简单类型数据
-    //reactive—标记复杂类型数据(深度响应式)
-    let mine = ref("xxl");
-    let obj = reactive({
-      name: "xxljunjun",
-      age: 18,
-    });
+    //属性
+    const obj = reactive([
+      {id:1,txt:"学习setup"},
+      {id:2,txt:"学习vue3的computed"},
+      {id:3,txt:"学习vue3的watch"},
+    ])
+    const router = useRouter()
+
+    //方法
+    function toPage(val) {
+      switch (val) {
+        case 1:
+          router.push({path:'/studysetup'})
+          break;
+        case 2:
+          router.push({path:'/studycomputed'})
+          break;
+        case 3:
+          router.push({path:'/studywatch'})
+          break;
+      }
+    }
     return {
-      mine,
       obj,
-      store,
+      toPage
     };
   },
-});
+};
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .home {
   color: #000;
+  button{
+    margin-right: 20px;
+  }
 }
 </style>

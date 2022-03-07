@@ -7,6 +7,21 @@ const routes = [
         component: () => import("../pages/home/index.vue")
     },
     {
+        path: "/studysetup",
+        name: "studysetup",
+        component: () => import("../pages/studysetup/index.vue")
+    },
+    {
+        path: "/studycomputed",
+        name: "studycomputed",
+        component: () => import("../pages/studycomputed/index.vue")
+    },
+    {
+        path: "/studywatch",
+        name: "studywatch",
+        component: () => import("../pages/studywatch/index.vue")
+    },
+    {
         path: "/mine",
         name: "mine",
         component: () => import("../pages/mine/mine.vue")
@@ -15,11 +30,6 @@ const routes = [
         path: "/proxy",
         name: "proxy",
         component: () => import("../pages/proxy/index.vue")
-    },
-    {
-        path: "/computed",
-        name: "proxy",
-        component: () => import("../pages/computed/index.vue")
     }
 ]
 
