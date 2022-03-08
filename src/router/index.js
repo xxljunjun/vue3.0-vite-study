@@ -24,6 +24,22 @@ const routes = [
         path: "/studylife",
         name: "studylife",
         component: () => import("../pages/studylife/index.vue")
+    },{
+        path: "/studyhook",
+        name: "studyhook",
+        component: () => import("../pages/studyhook/index.vue")
+    },{
+        path: "/studytoref",
+        name: "studytoref",
+        component: () => import("../pages/studytoref/index.vue")
+    },{
+        path: "/studyotherapi",
+        name: "studyotherapi",
+        component: () => import("../pages/studyotherapi/index.vue")
+    },{
+        path: "/studycustomref",
+        name: "studycustomref",
+        component: () => import("../pages/studycustomref/index.vue")
     },
 ]
 

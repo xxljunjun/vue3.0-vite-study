@@ -15,7 +15,11 @@ export default {
       {id:1,txt:"学习setup"},
       {id:2,txt:"学习vue3的computed"},
       {id:3,txt:"学习vue3的watch"},
-      {id:4,txt:"学习vue3的生命周期"}
+      {id:4,txt:"学习vue3的生命周期"},
+      {id:5,txt:"学习vue3的HOOK"},
+      {id:6,txt:"学习vue3的toref"},
+      {id:7,txt:"学习vue3的不常用的组合api"},
+      {id:8,txt:"学习vue3的customRef"},
     ])
     const router = useRouter()
 
@@ -33,6 +37,18 @@ export default {
           break;
         case 4:
           router.push({path:'/studylife'})
+          break;
+        case 5:
+          router.push({path:'/studyhook'})
+          break;
+        case 6:
+          router.push({path:'/studytoref'})
+          break;
+        case 7:
+          router.push({path:'/studyotherapi'})
+          break;
+        case 8:
+          router.push({path:'/studycustomref'})
           break;
       }
     }

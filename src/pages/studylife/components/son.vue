@@ -8,9 +8,13 @@
 
 <script lang="ts">
 /*
-  beforeCreate  -> setup()
-  created       -> setup()
         + vue3的组合式生命周期优先执行
+        + setup()替代了两个生命周期钩子
+          ==>beforeCreate
+          ==>created
+        + 弃用了beforeDestroy和destroyed
+          ==>beforeUnmount
+          ==>unmounted
 */
 import {
   onBeforeMount, // 在组件挂载之前执行的函数
@@ -36,29 +40,29 @@ export default {
     console.log("+++mounted+++");
   },
   beforeUpdate() {
-    console.log("+++beforeUpdate+++");
+    console.log("+++beforeUpdate+++"); 
   },
   updated() {
     console.log("+++updated+++");
   },
-  beforeDestroy() {
-    console.log("+++beforeDestroy+++");
+  beforeUnmount() {
+    console.log("+++beforeUnmount+++");
   },
-  destroyed() {
-    console.log("+++destroyed+++");
+  unmounted() {
+    console.log("+++unmounted+++");
   },
-  activated() {
-    console.log("+++activated+++");
-    //进入页面后触发
-  },
-  deactivated() {
-    //离开页面后触发
-    console.log("+++deactivated+++");
-  },
-  errorCaptured() {
-    //错误调用
-    console.log("+++errorCaptured+++");
-  },
+  // activated() {
+  //   console.log("+++activated+++");
+  //   //进入页面后触发
+  // },
+  // deactivated() {
+  //   //离开页面后触发
+  //   console.log("+++deactivated+++");
+  // },
+  // errorCaptured() {
+  //   //错误调用
+  //   console.log("+++errorCaptured+++");
+  // },
   setup() {
     console.log("----setup----");
     onBeforeMount(() => {
