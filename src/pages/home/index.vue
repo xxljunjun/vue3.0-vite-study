@@ -15,6 +15,7 @@ export default {
       {id:1,txt:"学习setup"},
       {id:2,txt:"学习vue3的computed"},
       {id:3,txt:"学习vue3的watch"},
+      {id:4,txt:"学习vue3的生命周期"}
     ])
     const router = useRouter()
 
@@ -29,6 +30,9 @@ export default {
           break;
         case 3:
           router.push({path:'/studywatch'})
+          break;
+        case 4:
+          router.push({path:'/studylife'})
           break;
       }
     }

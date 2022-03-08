@@ -20,17 +20,11 @@ const routes = [
         path: "/studywatch",
         name: "studywatch",
         component: () => import("../pages/studywatch/index.vue")
+    },{
+        path: "/studylife",
+        name: "studylife",
+        component: () => import("../pages/studylife/index.vue")
     },
-    {
-        path: "/mine",
-        name: "mine",
-        component: () => import("../pages/mine/mine.vue")
-    },
-    {
-        path: "/proxy",
-        name: "proxy",
-        component: () => import("../pages/proxy/index.vue")
-    }
 ]
 
 const router = createRouter({

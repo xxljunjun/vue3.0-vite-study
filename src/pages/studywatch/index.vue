@@ -80,7 +80,7 @@ export default {
         //用ref定义的复杂数据类型
             //{deep：true}
             //person.value
-        // watch(erson,(newVal,oldVal)=>{
+        // watch(person,(newVal,oldVal)=>{
         //     console.log(newVal)
         //     console.log(oldVal)
         // })
