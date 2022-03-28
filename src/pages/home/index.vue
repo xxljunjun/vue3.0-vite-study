@@ -20,6 +20,8 @@ export default {
       {id:6,txt:"学习vue3的toref"},
       {id:7,txt:"学习vue3的不常用的组合api"},
       {id:8,txt:"学习vue3的customRef"},
+      {id:9,txt:"学习vue3的teleport"},
+      {id:10,txt:"学习vue3的suspense"},
     ])
     const router = useRouter()
 
@@ -49,6 +51,12 @@ export default {
           break;
         case 8:
           router.push({path:'/studycustomref'})
+          break;
+        case 9:
+          router.push({path:'/studyteleport'})
+          break;
+        case 10:
+          router.push({path:'/studysuspense'})
           break;
       }
     }

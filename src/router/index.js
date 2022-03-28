@@ -40,6 +40,14 @@ const routes = [
         path: "/studycustomref",
         name: "studycustomref",
         component: () => import("../pages/studycustomref/index.vue")
+    },{
+        path: "/studyteleport",
+        name: "studyteleport",
+        component: () => import("../pages/studyteleport/index.vue")
+    },{
+        path: "/studysuspense",
+        name: "studysuspense",
+        component: () => import("../pages/studysuspense/index.vue")
     },
 ]
 

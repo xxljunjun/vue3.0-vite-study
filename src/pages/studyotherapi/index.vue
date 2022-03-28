@@ -36,6 +36,16 @@
         ==>应用场景：1、有些值不应该被设置成响应式；例如第三方类库。2、当渲染具有不可变数据源的大列表时，跳过响应式可以提高性能。
         
 */
+/*
+  isRef：检查一个值是否为一个ref对象
+  isReactive：检查一个对象是否是由reactive创建的响应式代理
+  isReadonly：检查一个对象是否是由readonly创建的只读代理
+  isProxy：检查一个对象是否是由reactive或者readonly方法创建的代理
+*/
+/*
+  Fragment：碎片
+    <Fragment></Fragment>
+*/
 import { reactive, toRefs, ref,markRaw } from "vue";
 export default {
   name: "studyotherapi",

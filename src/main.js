@@ -35,3 +35,26 @@ const vm = new Vue({
 vm.$mount("#app")
 */
 
+
+/*
+    vue3对某些api做了迁移
+        ==>app.component
+        ==>app.directive
+        ==>app.mixin
+        ==>app.use
+        ==>app.config.globalProperties
+        ==>vue.config.productionTip去除了（vue3更智能了知道你处于的环境）
+*/
+
+/*
+    data选项必须是一个函数
+    过渡类名的修改
+    移除了keyCode做作为v-on的修饰符，同时也不再支持config.keyCodes
+    移除@click.native
+        ==>原生的click事件和自定义事件的冲突
+        ==>emits新增的自定义事件
+    移除了过滤器filter
+        ==>打破了大括号内表达式是‘只是javascript’的假设
+        ==>推荐methods和computed去实现
+*/
+
