@@ -15,6 +15,7 @@
         + 弃用了beforeDestroy和destroyed
           ==>beforeUnmount
           ==>unmounted
+        + 生命周期写在setup上，hook写法类似于vue2中的混入
 */
 import {
   onBeforeMount, // 在组件挂载之前执行的函数
