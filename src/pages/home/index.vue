@@ -1,11 +1,15 @@
 <template>
   <div class="home">
+    <h3>vue3.0的新属性</h3>
      <button @click="toPage(item.id)" v-for="item in obj" :key="item.id">{{item.txt}}</button>
+     <p>-----------------------------------------------------</p>
+    <h3>vue2.0</h3>
+    <button @click="toPage_1(item.id)" v-for="item in obj_1" :key="item.id">{{item.txt}}</button>
   </div>
 </template>
 
 <script lang='ts'>
-import {reactive } from "vue";
+import {onMounted, reactive } from "vue";
 import {useRouter} from 'vue-router';
 export default {
   name: "home",
@@ -22,6 +26,9 @@ export default {
       {id:8,txt:"学习vue3的customRef"},
       {id:9,txt:"学习vue3的teleport"},
       {id:10,txt:"学习vue3的suspense"},
+    ])
+    const obj_1 = reactive([
+      {id:1,txt:"学习vuex"}
     ])
     const router = useRouter()
 
@@ -60,9 +67,18 @@ export default {
           break;
       }
     }
+    function toPage_1(val){
+       switch (val) {
+        case 1:
+          router.push({path:'/studyvuex'})
+          break;
+        }
+    }
     return {
       obj,
-      toPage
+      obj_1,
+      toPage,
+      toPage_1
     };
   },
 };

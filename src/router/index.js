@@ -48,6 +48,10 @@ const routes = [
         path: "/studysuspense",
         name: "studysuspense",
         component: () => import("../pages/studysuspense/index.vue")
+    },{
+        path: "/studyvuex",
+        name: "studyvuex",
+        component: () => import("../pages/studyvuex/index.vue")
     },
 ]
 
