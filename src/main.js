@@ -8,7 +8,7 @@ import router from './router'
 
 //创建应用实例对象
 const app = createApp(App)
-console.log("@@",app)
+console.log("@@app",app)
 app.use(store)
 .use(router)
 .use(ElementPlus)
