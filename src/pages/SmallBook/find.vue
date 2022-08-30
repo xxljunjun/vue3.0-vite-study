@@ -15,59 +15,55 @@
         <el-icon @click="drawer = true"><ArrowDownBold /></el-icon>
         <el-drawer
           v-model="drawer"
-          title="I am the title"
           :with-header="false"
           direction="ttb"
+          size="80%"
         >
-          <channel />
+          <channel @on-close="drawer = false" />
         </el-drawer>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import { reactive, toRefs, ref, markRaw } from "vue";
+<script setup>
+import { reactive, toRefs, ref, markRaw,watch } from "vue";
 import channel from "./components/channel.vue";
-export default {
-  name: "find",
-  components: {
-    channel,
-  },
-  setup() {
-    let drawer = ref(false)
-    let searchArr = reactive([
-    { id: 1, txt: "推荐", isChoose: true },
-        { id: 2, txt: "直播", isChoose: false },
-        { id: 3, txt: "男士理容", isChoose: false },
-        { id: 4, txt: "穿搭", isChoose: false },
-        { id: 5, txt: "护肤", isChoose: false },
-        { id: 6, txt: "好物", isChoose: false },
-        { id: 7, txt: "情感", isChoose: false },
-        { id: 8, txt: "推荐", isChoose: false },
-        { id: 9, txt: "直播", isChoose: false },
-        { id: 10, txt: "男士理容", isChoose: false },
-        { id: 11, txt: "穿搭", isChoose: false },
-        { id: 12, txt: "护肤", isChoose: false },
-        { id: 13, txt: "好物", isChoose: false },
-        { id: 14, txt: "情感", isChoose: false },
-    ])
-    //点击频道
-    const clickTxt = (id) => {
-      searchArr.forEach((val) => {
-        if (val.id == id) {
-          val.isChoose = true;
-        } else {
-          val.isChoose = false;
-        }
-      });
-    };
-    return {
-      drawer,
-      searchArr,
-      clickTxt,
-    };
-  },
+let drawer = ref(false);
+let searchArr = reactive([
+  { id: 1, txt: "推荐", isChoose: true },
+  { id: 2, txt: "直播", isChoose: false },
+  { id: 3, txt: "男士理容", isChoose: false },
+  { id: 4, txt: "穿搭", isChoose: false },
+  { id: 5, txt: "护肤", isChoose: false },
+  { id: 6, txt: "好物", isChoose: false },
+  { id: 7, txt: "情感", isChoose: false },
+  { id: 8, txt: "推荐", isChoose: false },
+  { id: 9, txt: "直播", isChoose: false },
+  { id: 10, txt: "男士理容", isChoose: false },
+  { id: 11, txt: "穿搭", isChoose: false },
+  { id: 12, txt: "护肤", isChoose: false },
+  { id: 13, txt: "好物", isChoose: false },
+  { id: 14, txt: "情感", isChoose: false },
+]);
+//监听
+watch(drawer,(newVal)=>{
+  console.log('弹窗的状态',newVal)
+  if(!newVal){
+    //监听到弹窗关闭都更新一下数据
+  }
+})
+/*
+@function:点击频道
+*/
+const clickTxt = (id) => {
+  searchArr.forEach((val) => {
+    if (val.id == id) {
+      val.isChoose = true;
+    } else {
+      val.isChoose = false;
+    }
+  });
 };
 </script>
 
