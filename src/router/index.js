@@ -52,6 +52,18 @@ const routes = [
         path: "/studyvuex",
         name: "studyvuex",
         component: () => import("../pages/studyvuex/index.vue")
+    },{
+        path: "/smallbook",
+        name: "smallbook",
+        component: () => import("../pages/SmallBook/index.vue")
+    },{
+        path: "/care",
+        name: "care",
+        component: () => import("../pages/SmallBook/care.vue")
+    },{
+        path: "/location",
+        name: "location",
+        component: () => import("../pages/SmallBook/location.vue")
     },
 ]
 

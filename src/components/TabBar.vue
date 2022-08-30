@@ -17,7 +17,7 @@ export default {
   setup() {
     const menuArr = reactive([
       { id: 1, txt: "vue3学习",path:'/' },
-      { id: 2, txt: "暂无",path:'/studysetup' },
+      { id: 2, txt: "小红书首页",path:'/smallbook' },
       { id: 3, txt: "暂无" ,path:'/studycomputed'},
       { id: 4, txt: "暂无" ,path:'/studywatch'},
     ]);

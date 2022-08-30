@@ -1,8 +1,6 @@
 <template>
   <router-view></router-view>
-  <div id="app">
     <TabBar />
-  </div>
 </template>
 
 <script lang="ts">
@@ -17,7 +15,9 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
-#app {
+<style lang="scss">
+body,html{
+  margin: 0;
+  padding: 0;
 }
 </style>

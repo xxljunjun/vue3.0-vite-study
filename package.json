@@ -7,6 +7,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.9",
     "element-plus": "^1.2.0-beta.4",
     "vue": "^3.2.23",
     "vue-router": "^4.0.12",

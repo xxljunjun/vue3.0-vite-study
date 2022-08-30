@@ -6,9 +6,14 @@ import './index.css'
 import store from './store'
 import router from './router'
 
+// 如果您正在使用CDN引入，请删除下面一行。
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 //创建应用实例对象
 const app = createApp(App)
 console.log("@@app",app)
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+  }
 app.use(store)
 .use(router)
 .use(ElementPlus)
