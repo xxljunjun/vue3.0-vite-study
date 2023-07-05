@@ -3,29 +3,34 @@
     <div class="ulbox">
       <div v-for="item in menuArr" :key="item.id" class="item">
         <router-link :to="item.path">
-            {{ item.txt }}
+          {{ item.txt }}
         </router-link>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { reactive } from "vue";
-export default {
-  name: "App",
-  setup() {
-    const menuArr = reactive([
-      { id: 1, txt: "vue3学习",path:'/' },
-      { id: 2, txt: "小红书首页",path:'/smallbook' },
-      { id: 3, txt: "暂无" ,path:'/studycomputed'},
-      { id: 4, txt: "暂无" ,path:'/studywatch'},
-    ]);
-    return {
-      menuArr,
-    };
+<script lang="ts" setup>
+import { reactive, computed} from "vue";
+let menuArr = reactive([
+  { id: 1, txt: "vue3学习", path: "/" },
+  { id: 2, txt: "小红书首页", path: "/smallbook" },
+  { id: 3, txt: "暂无", path: "/studycomputed" },
+  { id: 4, txt: "暂无", path: "/studywatch" },
+]);
+const alertEffects = ["light", "dark"] as const;
+const props = defineProps({
+  msg: {
+    type: String,
+    values:  ["light", "dark"],
+    default: "light",
   },
-};
+});
+let content  = computed(()=>{
+  return props.msg+'我手机'
+})
+
+console.log('content',content)
 </script>
 <style scoped lang="scss">
 .tabBar {
@@ -35,12 +40,12 @@ export default {
   position: fixed;
   bottom: 0;
   left: 0;
-    //路由激活时添加的css属性
-//   .router-link-active {
-//     background: red;
-//     color: #fff;
-//   }
-  .router-link-exact-active{
+  //路由激活时添加的css属性
+  //   .router-link-active {
+  //     background: red;
+  //     color: #fff;
+  //   }
+  .router-link-exact-active {
     background: green;
     color: #fff;
   }
@@ -51,7 +56,7 @@ export default {
     height: 50px;
     .item {
       list-style: none;
-      a{
+      a {
         text-decoration: none;
         height: 100%;
       }

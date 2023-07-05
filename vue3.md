@@ -40,6 +40,15 @@ import {
     withDirectives,
     withModifiers,
     PropType,
+    defineExpose,  //vue3默认是不暴露ref访问的
+    defineOptions,  //定义组件的name名
+    useSlots,
+    InjectionKey,
+    Ref,
+} from 'vue'
+
+import type {
+   CSSProperties //用于增加样式属性绑定中的允许值。
 } from 'vue'
 ```
 ```js
