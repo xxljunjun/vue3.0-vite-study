@@ -3,25 +3,20 @@
   <el-button @click="openLoginDialog">登录</el-button>
   <el-button @click="changeNum">改变仓库里面的值</el-button>
   <div>{{useStore.todos}}</div>
-  <loginDialog ref="dialogRef"/>
+ 
 </div>
 </template>
   
   <script setup lang="ts">
-  import {ref} from 'vue'
-  import loginDialog from '@/components/login/login-dialog.vue'
   import {todos} from '@/store/index'
+  import {userStore} from '@/store/modules/user'
   const useStore = todos()
-  console.log('useStore',useStore)
-  
+  const useUserStore = userStore()
   /**
    * 打开弹窗
    */
-  const dialogRef = ref<InstanceType<typeof loginDialog> | null>(null);
   const openLoginDialog = ()=>{
-    console.log('点击了登录弹窗',dialogRef)
-    const params = {}
-    dialogRef.value?.acceptParams(params)
+    useUserStore.setDialogStatus(true);
   }
   /**
    * 改变值

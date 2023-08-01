@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="dialogVisible" title="登录" :before-close="handleClose">
+  <el-dialog v-model="useUserStore.dialogVisible" title="登录" :before-close="handleClose">
     <div class="login-dialog">
       <el-form
         ref="ruleFormRef"
@@ -45,7 +45,6 @@ import type { FormInstance, FormRules } from "element-plus";
 import { checkPhoneNumber,checkPhone } from "@/utils/eleValidate";
 import {userStore} from '@/store/modules/user'
 
-let dialogVisible = ref(false);
 let codeStatus = ref(false);
 let numBtnStatus = ref(true);
 let time = ref(5)
@@ -110,7 +109,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (valid) {
       console.log("submit!");
       useUserStore.setToken('4dddgfh45dfghd435dfw4hj')
-      dialogVisible.value = false;
+      useUserStore.setDialogStatus(false);
     } else {
       console.log("error submit!");
       return false;
@@ -129,7 +128,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
  */
 const handleClose = () => {
   console.log("弹窗关闭前触发");
-  dialogVisible.value = false;
+  useUserStore.setDialogStatus(false);
 };
 
 /**
@@ -137,7 +136,7 @@ const handleClose = () => {
  */
 const acceptParams = (params) => {
   console.log("父组件通过ref触发", params);
-  dialogVisible.value = true;
+  useUserStore.setDialogStatus(true);
 };
 /**
  * 监听手机号的变化
@@ -154,7 +153,7 @@ watch(
  * 监听手机号的变化
  */
  watch(
-  () => dialogVisible.value,
+  () => useUserStore.dialogVisible,
   value => {
    console.log("监听弹窗显示",value)
    if(!value){

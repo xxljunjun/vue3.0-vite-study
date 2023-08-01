@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
 export const userStore = defineStore('userStore', {
     state:()=>({
-        token:''
+        token:'',
+        dialogVisible:false
     }),
     getters:{
 
@@ -9,6 +10,9 @@ export const userStore = defineStore('userStore', {
     actions:{
         setToken(token){
             this.token = token
+        },
+        setDialogStatus(bol){
+            this.dialogVisible = bol
         }
     }
 })
