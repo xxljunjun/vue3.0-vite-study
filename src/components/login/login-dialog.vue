@@ -43,6 +43,7 @@
 import { reactive, ref,watch } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 import { checkPhoneNumber,checkPhone } from "@/utils/eleValidate";
+import {userStore} from '@/store/modules/user'
 
 let dialogVisible = ref(false);
 let codeStatus = ref(false);
@@ -54,6 +55,7 @@ const ruleFormRef = ref<FormInstance>();
   phone: "13680086357",
   code: "",
 });
+const useUserStore = userStore()
 
 /**
  * 手机号码的校验
@@ -107,6 +109,8 @@ const submitForm = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       console.log("submit!");
+      useUserStore.setToken('4dddgfh45dfghd435dfw4hj')
+      dialogVisible.value = false;
     } else {
       console.log("error submit!");
       return false;
