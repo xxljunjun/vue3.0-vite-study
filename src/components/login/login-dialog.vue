@@ -6,7 +6,6 @@
         :model="ruleForm"
         status-icon
         :rules="rules"
-        label-width="120px"
         class="demo-ruleForm"
       >
         <el-form-item label="手机号" prop="phone">
@@ -15,12 +14,14 @@
      
         <el-form-item label="验证码" prop="code">
           <el-row :gutter="10">
-            <el-col :span="16">
+            <el-col :span="17">
               <el-input v-model.number="ruleForm.code"
             /></el-col>
             <el-col :span="2">
-              <el-button type="primary" @click="getCode"
-                >获取验证码</el-button
+              <el-button v-if="numBtnStatus" :disabled="codeStatus" type="primary" @click="getCode"
+                >获取验证码</el-button>
+                <el-button v-else :disabled="true" type="primary"
+                >{{time}}s</el-button
               ></el-col
             >
           </el-row>
@@ -39,18 +40,20 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
+import { reactive, ref,watch } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
-import { checkPhoneNumber } from "@/utils/eleValidate";
+import { checkPhoneNumber,checkPhone } from "@/utils/eleValidate";
 
 let dialogVisible = ref(false);
+let codeStatus = ref(false);
+let numBtnStatus = ref(true);
+let time = ref(5)
+let timer = reactive(null)
 const ruleFormRef = ref<FormInstance>();
   const ruleForm = reactive({
-  phone: "",
+  phone: "13680086357",
   code: "",
 });
-
-
 
 /**
  * 手机号码的校验
@@ -79,6 +82,22 @@ const rules = reactive<FormRules<typeof ruleForm>>({
  */
 const getCode = ()=>{
   console.log('获取验证码')
+  numBtnStatus.value = false
+  timer= setInterval(()=>{
+    time.value -=1
+    console.log('定时器哒哒哒')
+    if(time.value<=0){
+      initTimer()
+    }
+  },1000)
+}
+/**
+ * 初始化定时器
+ */
+const initTimer = ()=>{
+  clearInterval(timer)
+      numBtnStatus.value = true
+      time.value = 5
 }
 /**
  * 点击登录按钮
@@ -106,7 +125,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
  */
 const handleClose = () => {
   console.log("弹窗关闭前触发");
-  // return true
   dialogVisible.value = false;
 };
 
@@ -117,6 +135,29 @@ const acceptParams = (params) => {
   console.log("父组件通过ref触发", params);
   dialogVisible.value = true;
 };
+/**
+ * 监听手机号的变化
+ */
+watch(
+  () => ruleForm.phone,
+  value => {
+   console.log("监听手机号的变化",value)
+   codeStatus.value = !checkPhone(ruleForm.phone)
+  },
+  { immediate: true }
+);
+/**
+ * 监听手机号的变化
+ */
+ watch(
+  () => dialogVisible.value,
+  value => {
+   console.log("监听弹窗显示",value)
+   if(!value){
+    initTimer()
+   }
+  },
+);
 defineExpose({
   acceptParams,
 });
