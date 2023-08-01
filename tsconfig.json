@@ -14,9 +14,9 @@
       // "node", // 引入 node 的类型声明
     ],
     "paths": { // 指定模块的路径，和baseUrl有关联，和webpack中resolve.alias配置一样
-      "src": [ //指定后可以在文件之直接 import * from 'src';
-        "./src"
-      ],
+      "@/*": [
+        "src/*"
+      ]
     },
     "target": "ESNext", // 编译的目标是什么版本的
     "outDir": "./dist", // 输出目录
@@ -40,6 +40,6 @@
   "exclude": [
   ],
   // 指定哪些文件使用该配置（属于手动一个个指定文件）
-  "files": [
-  ]
+  // "files": [
+  // ]
 }

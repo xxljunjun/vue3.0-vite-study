@@ -64,6 +64,10 @@ const routes = [
         path: "/location",
         name: "location",
         component: () => import("../pages/SmallBook/location.vue")
+    },{
+        path: "/pinia",
+        name: "pinia",
+        component: () => import("../pages/study-pinia/index.vue")
     },
 ]
 

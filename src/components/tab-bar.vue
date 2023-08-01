@@ -18,7 +18,6 @@ let menuArr = reactive([
   { id: 3, txt: "暂无", path: "/studycomputed" },
   { id: 4, txt: "暂无", path: "/studywatch" },
 ]);
-const alertEffects = ["light", "dark"] as const;
 const props = defineProps({
   msg: {
     type: String,
@@ -29,8 +28,6 @@ const props = defineProps({
 let content  = computed(()=>{
   return props.msg+'我手机'
 })
-
-console.log('content',content)
 </script>
 <style scoped lang="scss">
 .tabBar {
